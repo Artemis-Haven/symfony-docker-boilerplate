@@ -21,6 +21,7 @@ RUN rm /etc/apt/preferences.d/no-debian-php \
     libicu-dev \
     g++ \
     && docker-php-ext-install -j$(nproc) iconv \
+    && docker-php-ext-install -j$(nproc) intl \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-freetype=/usr/include/ \
     && docker-php-ext-install -j$(nproc) pdo_mysql \
