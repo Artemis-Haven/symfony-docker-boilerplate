@@ -42,3 +42,9 @@ services:
       restart: always
       ports:
         - 8012:8080 # Set the port to access to Adminer
+
+    node:
+      # image: node
+      build: ./docker/node
+      volumes:
+        - ./code:/var/www/symfony:rw
