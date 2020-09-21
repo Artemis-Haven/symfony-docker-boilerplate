@@ -35,7 +35,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "unlink('composer-setup.php');"
 
 # Install Symfony binary
-RUN wget https://get.symfony.com/cli/installer -O - | bash \
+RUN curl https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
 WORKDIR /var/www/symfony
