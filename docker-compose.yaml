@@ -17,8 +17,8 @@ services:
     php:
       build: ./docker/php
       working_dir: /var/www/symfony
-      expose:
-        - 9000
+      ports:
+        - 8013:9000
       volumes:
         - ./code:/var/www/symfony:rw
       environment:
@@ -30,7 +30,10 @@ services:
       image: mysql
       command: ["--default-authentication-plugin=mysql_native_password"]
       volumes:
-          - ./docker/db/data:/var/lib/mysql
+        - ./docker/db/data:/var/lib/mysql
+      ports:
+        - 8014:3306
+        - 8015:33060
       environment:
         MYSQL_ROOT_PASSWORD: root
         MYSQL_DATABASE: symfony
